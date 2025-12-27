@@ -1,7 +1,7 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onDrag' | 'onDragEnd' | 'onDragStart'> {
   variant?: 'primary' | 'secondary' | 'outline';
   isLoading?: boolean;
   children: ReactNode;
@@ -34,7 +34,7 @@ export const Button = ({
       transition={{ duration: 0.2 }}
       className={`${baseStyles} ${variants[variant]} ${className}`}
       disabled={disabled || isLoading}
-      {...props}
+      {...(props as Record<string, unknown>)}
     >
       {isLoading ? (
         <span className="flex items-center gap-2">

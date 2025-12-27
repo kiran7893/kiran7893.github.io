@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { NAVIGATION_ITEMS } from '../../utils/constants';
-import { Link } from '../ui/Link';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

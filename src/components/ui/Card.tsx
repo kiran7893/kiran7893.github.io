@@ -1,7 +1,7 @@
-import { HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onDrag' | 'onDragEnd' | 'onDragStart'> {
   children: ReactNode;
   hover?: boolean;
 }
@@ -21,7 +21,7 @@ export const Card = ({
         whileHover={{ y: -2 }}
         transition={{ duration: 0.2 }}
         className={`${baseStyles} shadow-elevation hover:shadow-elevation-hover ${className}`}
-        {...props}
+        {...(props as Record<string, unknown>)}
       >
         {children}
       </motion.div>
