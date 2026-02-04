@@ -1,5 +1,5 @@
-import { profileData } from '../../data/profile';
-import { Link } from '../ui/Link';
+import { profileData } from '@/data/profile';
+import { Link } from '@/components/ui/Link';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();

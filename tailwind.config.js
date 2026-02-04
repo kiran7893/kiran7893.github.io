@@ -1,14 +1,14 @@
-import type { Config } from 'tailwindcss';
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
-    './index.html',
-    './src/**/*.{js,ts,jsx,tsx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/features/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       spacing: {
-        // 8-point spacing scale
         '8': '8px',
         '16': '16px',
         '24': '24px',
@@ -21,13 +21,11 @@ const config: Config = {
         '128': '128px',
       },
       borderRadius: {
-        // Only 3 radius values: 4px, 8px, 12px
         'sm': '4px',
         'md': '8px',
         'lg': '12px',
       },
       colors: {
-        // Disciplined color palette - no purple gradients
         background: 'var(--color-background)',
         foreground: 'var(--color-foreground)',
         muted: 'var(--color-muted)',
@@ -47,7 +45,6 @@ const config: Config = {
         ],
       },
       boxShadow: {
-        // Single elevation system
         'elevation': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
         'elevation-hover': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
       },
@@ -55,6 +52,4 @@ const config: Config = {
   },
   plugins: [],
 };
-
-export default config;
 

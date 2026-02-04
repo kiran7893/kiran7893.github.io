@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { profileData } from '../../data/profile';
 import { Button } from '../../components/ui/Button';
