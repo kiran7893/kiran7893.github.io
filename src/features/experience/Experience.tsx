@@ -5,7 +5,7 @@ import { profileData } from '../../data/profile';
 
 export const Experience = () => {
   return (
-    <Section id="experience">
+    <Section id="experience" className="pt-0">
       <FadeIn>
         <h2 className="text-4xl mb-12">Experience</h2>
         <div className="space-y-8">

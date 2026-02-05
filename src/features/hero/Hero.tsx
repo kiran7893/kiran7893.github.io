@@ -26,41 +26,35 @@ export const Hero = () => {
   const openLink = (url: string) => window.open(url, '_blank', 'noopener,noreferrer');
 
   return (
-    <Section id="home" className="min-h-[85vh] flex items-center justify-center pt-0 pb-12 lg:py-0 -mt-24">
-      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16 w-full max-w-6xl mx-auto">
+    <Section id="home" className="min-h-[80vh] md:min-h-[85vh] flex items-center justify-center pt-0 pb-0 md:py-0 -mt-12 md:-mt-20 lg:-mt-24">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-12 lg:gap-16 w-full max-w-6xl mx-auto">
         
         {/* Text Content */}
-        <div className="flex-1 text-center lg:text-left">
+        <div className="flex-1 text-center md:text-left">
           <FadeIn>
-            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-muted mb-4 font-medium">
-              Full-Stack Engineer • AI Systems Builder
-            </p>
-          </FadeIn>
-          
-          <FadeIn delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight">
               {profileData.name}
             </h1>
           </FadeIn>
           
-          <FadeIn delay={0.15}>
-            <p className="text-lg sm:text-xl lg:text-2xl text-foreground/90 mb-3">
+          <FadeIn delay={0.1}>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/90 mb-2 sm:mb-3">
               {profileData.role}
             </p>
           </FadeIn>
           
-          <FadeIn delay={0.2}>
-            <p className="text-base sm:text-lg text-muted mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+          <FadeIn delay={0.15}>
+            <p className="text-sm sm:text-base md:text-lg text-muted mb-6 sm:mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed">
               {profileData.tagline}
             </p>
           </FadeIn>
           
-          <FadeIn delay={0.25}>
-            <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-8">
+          <FadeIn delay={0.2}>
+            <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3 mb-6 sm:mb-8">
               <Button
                 variant="primary"
                 onClick={() => openLink(profileData.socialLinks.github)}
-                className="gap-2"
+                className="gap-2 text-sm sm:text-base"
               >
                 <GithubIcon className="w-4 h-4 shrink-0" />
                 GitHub
@@ -68,7 +62,7 @@ export const Hero = () => {
               <Button
                 variant="outline"
                 onClick={() => openLink(profileData.socialLinks.linkedin)}
-                className="gap-2"
+                className="gap-2 text-sm sm:text-base"
               >
                 <Linkedin className="w-4 h-4" aria-hidden />
                 LinkedIn
@@ -76,7 +70,7 @@ export const Hero = () => {
               <Button
                 variant="outline"
                 onClick={() => openLink(profileData.socialLinks.resume)}
-                className="gap-2"
+                className="gap-2 text-sm sm:text-base"
               >
                 <FileText className="w-4 h-4" aria-hidden />
                 Resume
@@ -84,8 +78,8 @@ export const Hero = () => {
             </div>
           </FadeIn>
           
-          <FadeIn delay={0.3}>
-            <div className="text-sm text-muted space-y-1">
+          <FadeIn delay={0.25}>
+            <div className="text-xs sm:text-sm text-muted space-y-1">
               <p>Available for full-time and contract opportunities.</p>
               <p>
                 Prefer email?{" "}
@@ -101,11 +95,11 @@ export const Hero = () => {
         <FadeIn delay={0.1} className="flex-shrink-0">
           <div className="relative">
             {/* Decorative ring */}
-            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/20 via-primary/5 to-transparent blur-sm" />
+            <div className="absolute -inset-2 sm:-inset-3 rounded-full bg-gradient-to-br from-primary/20 via-primary/5 to-transparent blur-sm" />
             <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/10 to-transparent" />
             
             {/* Image container */}
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden ring-4 ring-background shadow-2xl">
+            <div className="relative w-32 h-32 sm:w-44 sm:h-44 md:w-56 md:h-56 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full overflow-hidden ring-2 sm:ring-4 ring-background shadow-xl sm:shadow-2xl">
               <Image
                 src="/Image1.png"
                 alt={profileData.name}

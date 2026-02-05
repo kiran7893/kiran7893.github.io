@@ -44,7 +44,7 @@ export interface ProfileData {
 export const profileData: ProfileData = {
   name: 'Myadaram Sai Kiran',
   location: 'Hyderabad, Telangana, India',
-  role: 'Full-Stack Engineer | AI Systems Builder',
+  role: 'Full-Stack Engineer',
   tagline: 'Building AI-driven full-stack systems that scale',
   about:
     'Full-stack engineer specializing in GenAI, RAG systems, and cloud infrastructure. I build end-to-end solutions with a focus on ownership, scalability, and delivering measurable impact. Experienced in developing production-grade applications from concept to deployment.',
