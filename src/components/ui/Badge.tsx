@@ -17,11 +17,11 @@ export const Badge = ({
 
   const variants = {
     default:
-      'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600',
+      'bg-accent text-white hover:bg-accent/90',
     secondary:
-      'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600',
+      'bg-slate-100 text-slate-700 hover:bg-slate-200',
     outline:
-      'border border-gray-300 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800',
+      'border border-border text-muted hover:bg-slate-50',
   };
 
   return (
@@ -30,4 +30,3 @@ export const Badge = ({
     </div>
   );
 };
-

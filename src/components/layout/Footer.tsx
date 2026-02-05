@@ -6,7 +6,7 @@ export const Footer = () => {
 
   return (
     <footer className="border-t border-border py-12">
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div className="container mx-auto px-4 md:px-6 max-w-5xl">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted">
             © {currentYear} Myadaram Sai Kiran. All rights reserved.
@@ -27,4 +27,3 @@ export const Footer = () => {
     </footer>
   );
 };
-

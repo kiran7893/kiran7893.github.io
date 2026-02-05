@@ -13,12 +13,12 @@ export const Skills = () => {
   return (
     <Section id="skills">
       <FadeIn>
-        <h2 className="text-4xl font-bold mb-12">Skills</h2>
+        <h2 className="text-4xl mb-12">Skills</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {skillGroups.map((group, index) => (
             <FadeIn key={group.title} delay={index * 0.1}>
               <div>
-                <h3 className="text-xl font-semibold mb-4">{group.title}</h3>
+                <h3 className="text-xl mb-4">{group.title}</h3>
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
                     <span
@@ -37,4 +37,3 @@ export const Skills = () => {
     </Section>
   );
 };
-

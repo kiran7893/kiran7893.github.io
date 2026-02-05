@@ -8,12 +8,12 @@ export const Projects = () => {
   return (
     <Section id="projects">
       <FadeIn>
-        <h2 className="text-4xl font-bold mb-12">Projects</h2>
+        <h2 className="text-4xl mb-12">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {profileData.projects.map((project, index) => (
             <FadeIn key={project.title} delay={index * 0.1}>
               <Card hover>
-                <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                <h3 className="text-xl mb-3">{project.title}</h3>
                 <p className="text-base leading-7 text-muted mb-4">
                   {project.description}
                 </p>
@@ -40,4 +40,3 @@ export const Projects = () => {
     </Section>
   );
 };
-

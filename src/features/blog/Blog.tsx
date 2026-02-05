@@ -1,4 +1,4 @@
-import { Calendar, Clock, User, BookOpen } from 'lucide-react';
+import { Calendar, Clock, User, BookOpen, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
@@ -21,6 +21,15 @@ export const Blog = () => {
     <Section className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto">
         <FadeIn>
+          {/* Back Button */}
+          <Link 
+            href="/" 
+            className="inline-flex items-center gap-2 text-muted hover:text-foreground transition-all duration-200 mb-8 group"
+          >
+            <ArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
+            <span className="text-sm font-medium">Back to Home</span>
+          </Link>
+          
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <BookOpen className="w-8 h-8 text-accent" />

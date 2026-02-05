@@ -15,14 +15,14 @@ export const Card = ({
   ...props
 }: CardProps) => {
   const baseStyles =
-    'bg-background border border-border rounded-lg p-6 transition-shadow duration-200';
+    'bg-surface border border-border rounded-lg p-6 transition-colors duration-200';
 
   if (hover) {
     return (
       <motion.div
-        whileHover={{ y: -2 }}
-        transition={{ duration: 0.2 }}
-        className={`${baseStyles} shadow-elevation hover:shadow-elevation-hover ${className}`}
+        whileHover={{ y: -1 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+        className={`${baseStyles} shadow-sm hover:border-slate-300 ${className}`}
         {...(props as Record<string, unknown>)}
       >
         {children}
@@ -31,9 +31,8 @@ export const Card = ({
   }
 
   return (
-    <div className={`${baseStyles} shadow-elevation ${className}`} {...props}>
+    <div className={`${baseStyles} shadow-sm ${className}`} {...props}>
       {children}
     </div>
   );
 };
-

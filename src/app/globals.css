@@ -1,21 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --color-background: #ffffff;
-  --color-foreground: #0a0a0a;
-  --color-muted: #6b7280;
-  --color-accent: #2563eb;
-  --color-border: #e5e7eb;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #0a0a0a;
-    --color-foreground: #fafafa;
-    --color-muted: #9ca3af;
-    --color-accent: #3b82f6;
-    --color-border: #374151;
-  }
+  --color-background: #fcfcfa;
+  --color-foreground: #0f172a;
+  --color-muted: #64748b;
+  --color-accent: #0f4c81;
+  --color-border: #dbe3ec;
+  --color-surface: #ffffff;
+  --font-sans: "Avenir Next", "Satoshi", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-serif: "Iowan Old Style", "Baskerville", "Times New Roman", serif;
 }
 
 @layer base {
@@ -23,34 +16,44 @@
     border-color: var(--color-border);
   }
   
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    background-color: var(--color-background);
+    background: radial-gradient(circle at top right, #f2f7ff 0%, var(--color-background) 42%);
     color: var(--color-foreground);
+    font-family: var(--font-sans), sans-serif;
     font-feature-settings: 'rlig' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
   }
   
   h1 {
-    font-size: 2.25rem;
+    font-family: var(--font-serif), serif;
+    font-size: 2.45rem;
     line-height: 1.2;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: -0.025em;
   }
   
   h2 {
-    font-size: 1.875rem;
-    line-height: 1.2;
+    font-family: var(--font-serif), serif;
+    font-size: 2rem;
+    line-height: 1.24;
     font-weight: 600;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
   }
   
   h3 {
-    font-size: 1.5rem;
+    font-family: var(--font-serif), serif;
+    font-size: 1.45rem;
     line-height: 1.4;
     font-weight: 600;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.01em;
   }
   
   h4 {
+    font-family: var(--font-serif), serif;
     font-size: 1.25rem;
     line-height: 1.4;
     font-weight: 600;
@@ -65,6 +68,10 @@
 @layer utilities {
   .bg-background {
     background-color: var(--color-background);
+  }
+
+  .bg-foreground {
+    background-color: var(--color-foreground);
   }
   
   .text-foreground {
@@ -86,5 +93,8 @@
   .bg-muted {
     background-color: var(--color-muted);
   }
-}
 
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+}

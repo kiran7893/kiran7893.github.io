@@ -13,7 +13,7 @@ export const Link = ({
   ...props
 }: LinkProps) => {
   const baseStyles =
-    'text-accent hover:text-accent/80 underline-offset-4 hover:underline transition-colors duration-200';
+    'text-accent hover:text-accent/80 underline underline-offset-4 decoration-accent/40 hover:decoration-accent transition-colors duration-200';
 
   return (
     <a
@@ -27,4 +27,3 @@ export const Link = ({
     </a>
   );
 };
-

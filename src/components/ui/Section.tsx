@@ -14,13 +14,12 @@ export const Section = ({
   return (
     <section
       id={id}
-      className={`py-24 md:py-32 ${className}`}
+      className={`py-12 md:py-16 scroll-mt-20 ${className}`}
       {...props}
     >
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         {children}
       </div>
     </section>
   );
 };
-

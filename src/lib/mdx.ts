@@ -10,7 +10,7 @@ export function getAllPostSlugs(): string[] {
   try {
     const files = fs.readdirSync(contentDirectory);
     return files
-      .filter((file) => file.endsWith(".mdx"))
+      .filter((file) => file.endsWith(".mdx") && !file.startsWith("_"))
       .map((file) => file.replace(".mdx", ""));
   } catch {
     console.warn("Content directory not found, returning empty array");

@@ -6,7 +6,6 @@ export const About = () => {
   return (
     <Section id="about">
       <FadeIn>
-        <h2 className="text-4xl font-bold mb-8">About</h2>
         <div className="max-w-3xl">
           <p className="text-lg leading-8 text-muted mb-6">
             {profileData.about}
@@ -31,4 +30,3 @@ export const About = () => {
     </Section>
   );
 };
-

@@ -34,15 +34,10 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          'system-ui',
-          '-apple-system',
-          'BlinkMacSystemFont',
-          '"Segoe UI"',
-          'Roboto',
-          '"Helvetica Neue"',
-          'Arial',
+          'var(--font-sans)',
           'sans-serif',
         ],
+        serif: ['var(--font-serif)', 'serif'],
       },
       boxShadow: {
         'elevation': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
@@ -52,4 +47,3 @@ module.exports = {
   },
   plugins: [],
 };
-

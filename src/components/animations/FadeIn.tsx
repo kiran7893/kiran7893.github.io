@@ -27,14 +27,13 @@ export const FadeIn = ({ children, delay = 0, className = '' }: FadeInProps) => 
       initial="hidden"
       animate={controls}
       variants={{
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 12 },
         visible: { opacity: 1, y: 0 },
       }}
-      transition={{ duration: 0.5, delay }}
+      transition={{ duration: 0.45, delay, ease: 'easeOut' }}
       className={className}
     >
       {children}
     </motion.div>
   );
 };
-
