@@ -44,7 +44,7 @@ const TimelineItem = ({ entry, index }: { entry: TimelineEntry; index: number })
           {/* Narrative */}
           <div className="prose prose-slate max-w-none">
             {entry.narrative.split('\n\n').map((paragraph, idx) => (
-              <p key={idx} className="text-[15px] leading-relaxed text-muted mb-3 last:mb-0">
+              <p key={idx} className="text-base leading-relaxed text-foreground mb-3 last:mb-0">
                 {paragraph}
               </p>
             ))}

@@ -44,7 +44,7 @@ export const Hero = () => {
           </FadeIn>
           
           <FadeIn delay={0.15}>
-            <p className="text-sm sm:text-base md:text-lg text-muted mb-6 sm:mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-foreground/80 font-medium mb-6 sm:mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed">
               {profileData.tagline}
             </p>
           </FadeIn>
