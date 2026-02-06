@@ -140,6 +140,15 @@ I focused heavily on practical skills alongside academics—learning full-stack 
       context: '@ Indhic',
     },
     {
+      title: 'Satvic Foods',
+      problem: 'A leading agricultural exporter needed a modern, professional website to showcase their premium gherkins and vegetables to global markets while highlighting their certifications and sustainable farming practices.',
+      solution: 'I built a visually rich, high-performance website for Satvic Foods featuring product catalogs, certification showcases, and company information. The site highlights their partnership with 4000+ farmers and exports to 24+ countries, with optimized performance and SEO for international reach.',
+      technologies: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS'],
+      image: 'https://placehold.co/800x450/22c55e/ffffff?text=Satvic+Foods',
+      link: 'https://www.satvicfoods.in',
+      context: '@ Indhic',
+    },
+    {
       title: 'Personiks',
       problem: 'A cosmetic clinic needed a modern, high-performance website with appointment booking and secure payment processing to attract and serve patients online.',
       solution: 'I spearheaded development and deployment of personiks.com using Next.js and TypeScript. Integrated MongoDB with Mongoose for data management and HDFC payment gateway for secure transactions. Automated deployments using Dokploy and optimized for performance, SEO, and scalability.',
