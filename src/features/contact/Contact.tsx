@@ -16,7 +16,7 @@ export const Contact = () => {
               projects, or just having a conversation about technology and
               software engineering.
             </p>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href={profileData.socialLinks.email}
                 external
@@ -30,13 +30,6 @@ export const Contact = () => {
                 className="text-lg"
               >
                 LinkedIn
-              </Link>
-              <Link
-                href={profileData.socialLinks.github}
-                external
-                className="text-lg"
-              >
-                GitHub
               </Link>
             </div>
           </Card>

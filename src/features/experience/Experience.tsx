@@ -1,53 +1,73 @@
+'use client';
+
 import { Section } from '../../components/ui/Section';
-import { Card } from '../../components/ui/Card';
 import { FadeIn } from '../../components/animations/FadeIn';
-import { profileData } from '../../data/profile';
+import { profileData, TimelineEntry } from '../../data/profile';
+
+const TimelineItem = ({ entry, index }: { entry: TimelineEntry; index: number }) => {
+  return (
+    <FadeIn delay={index * 0.08}>
+      <div className="timeline-item grid grid-cols-[100px_1fr] md:grid-cols-[120px_1fr] gap-4 md:gap-8 pb-10 relative">
+        {/* Period */}
+        <div className="text-sm text-muted font-medium pt-0.5">
+          {entry.period}
+        </div>
+        
+        {/* Content */}
+        <div className="pb-2 border-l border-border pl-6 relative">
+          {/* Timeline dot */}
+          <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-border" />
+          {/* Company/Institution name and role */}
+          <div className="mb-3">
+            {entry.subtitle && (
+              <h3 className="text-xl font-semibold text-foreground leading-snug">
+                {entry.subtitle}
+              </h3>
+            )}
+            {!entry.subtitle && (
+              <h3 className="text-xl font-semibold text-foreground leading-snug">
+                {entry.title}
+              </h3>
+            )}
+            {entry.subtitle && (
+              <p className="text-base text-foreground/80">
+                {entry.title}
+              </p>
+            )}
+            {entry.location && (
+              <p className="text-sm text-muted">
+                {entry.location}
+              </p>
+            )}
+          </div>
+          
+          {/* Narrative */}
+          <div className="prose prose-slate max-w-none">
+            {entry.narrative.split('\n\n').map((paragraph, idx) => (
+              <p key={idx} className="text-[15px] leading-relaxed text-muted mb-3 last:mb-0">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </FadeIn>
+  );
+};
 
 export const Experience = () => {
   return (
-    <Section id="experience" className="pt-0">
+    <Section id="experience" className="!py-16 md:!py-24">
       <FadeIn>
-        <h2 className="text-4xl mb-12">Experience</h2>
-        <div className="space-y-8">
-          {profileData.experience.map((exp, index) => (
-            <FadeIn key={exp.company} delay={index * 0.1}>
-              <Card hover>
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                  <div>
-                    <h3 className="text-2xl mb-2">
-                      {exp.role}
-                    </h3>
-                    <p className="text-lg text-foreground mb-1">{exp.company}</p>
-                    <p className="text-sm text-muted">
-                      {exp.period} · {exp.location}
-                    </p>
-                  </div>
-                </div>
-                <ul className="space-y-2 mb-4">
-                  {exp.description.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-muted mt-2">•</span>
-                      <span className="text-base leading-7 text-muted">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {exp.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-sm rounded-md bg-muted/10 text-muted border border-border"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </Card>
-            </FadeIn>
-          ))}
-        </div>
+        <h2 className="text-3xl md:text-4xl mb-10 md:mb-14">Journey</h2>
       </FadeIn>
+      
+      <div className="timeline relative">
+        {profileData.timeline.map((entry, index) => (
+          <TimelineItem key={entry.id} entry={entry} index={index} />
+        ))}
+        
+      </div>
     </Section>
   );
 };

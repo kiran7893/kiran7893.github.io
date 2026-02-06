@@ -98,3 +98,18 @@
     background-color: var(--color-surface);
   }
 }
+
+/* Timeline styles */
+@layer components {
+  .timeline-item:last-of-type > div:nth-child(2) {
+    border-color: transparent;
+  }
+  
+  .prose p {
+    margin-bottom: 0.75rem;
+  }
+  
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+}

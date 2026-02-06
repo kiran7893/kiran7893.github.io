@@ -22,9 +22,10 @@ export const Header = () => {
   const NavLink = ({ href, children, external = false }: { href: string; children: React.ReactNode; external?: boolean }) => {
     const active = isActive(href);
     const baseClass = `
-      relative text-base font-medium py-2 px-1
+      relative text-lg font-medium py-2 px-1
       transition-all duration-300 ease-out
-      ${active ? 'text-foreground' : 'text-muted hover:text-foreground'}
+      text-gray-800 hover:text-black
+      group
     `;
 
     const content = (
@@ -32,7 +33,7 @@ export const Header = () => {
         {children}
         <span 
           className={`
-            absolute bottom-0 left-0 h-0.5 bg-accent rounded-full
+            absolute left-0 -bottom-0.5 h-[1.5px] bg-gray-800
             transition-all duration-300 ease-out
             ${active ? 'w-full' : 'w-0 group-hover:w-full'}
           `}
@@ -44,7 +45,7 @@ export const Header = () => {
       return (
         <a
           href={href}
-          className={`group ${baseClass}`}
+          className={baseClass}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -54,7 +55,7 @@ export const Header = () => {
     }
 
     return (
-      <Link href={href} className={`group ${baseClass}`}>
+      <Link href={href} className={baseClass}>
         {content}
       </Link>
     );
@@ -111,20 +112,27 @@ export const Header = () => {
           <div className="flex flex-col gap-4 pt-2">
             <Link
               href="/blog"
-              className={`
-                text-lg font-medium py-2 transition-all duration-200
-                ${isActive('/blog') ? 'text-foreground translate-x-2' : 'text-muted hover:text-foreground hover:translate-x-2'}
-              `}
+              className="relative text-xl font-medium py-2 text-gray-800 hover:text-black transition-all duration-200 group w-fit"
               onClick={() => setIsMenuOpen(false)}
             >
               Blog
+              <span 
+                className={`
+                  absolute left-0 -bottom-0.5 h-[1.5px] bg-gray-800
+                  transition-all duration-300 ease-out
+                  ${isActive('/blog') ? 'w-full' : 'w-0 group-hover:w-full'}
+                `}
+              />
             </Link>
             <a
               href="mailto:myadaramsaikiran@gmail.com"
-              className="text-lg font-medium py-2 text-muted hover:text-foreground hover:translate-x-2 transition-all duration-200"
+              className="relative text-xl font-medium py-2 text-gray-800 hover:text-black transition-all duration-200 group w-fit"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
+              <span 
+                className="absolute left-0 -bottom-0.5 h-[1.5px] bg-gray-800 transition-all duration-300 ease-out w-0 group-hover:w-full"
+              />
             </a>
           </div>
         </div>

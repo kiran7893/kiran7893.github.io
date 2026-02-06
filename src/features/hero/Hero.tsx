@@ -26,7 +26,7 @@ export const Hero = () => {
   const openLink = (url: string) => window.open(url, '_blank', 'noopener,noreferrer');
 
   return (
-    <Section id="home" className="min-h-[80vh] md:min-h-[85vh] flex items-center justify-center pt-0 pb-0 md:py-0 -mt-12 md:-mt-20 lg:-mt-24">
+    <Section id="home" className="flex items-center justify-center !pt-12 sm:!pt-16 md:!pt-20 !pb-0">
       <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-12 lg:gap-16 w-full max-w-6xl mx-auto">
         
         {/* Text Content */}
