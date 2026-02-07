@@ -12,11 +12,28 @@ import {
   getYouTubeThumbnail,
 } from './YouTubeModal';
 
+/** Extract a clean domain name from a URL, falling back to "Live Demo" for ugly cloud/preview URLs */
+const getDomainFromUrl = (url: string): string => {
+  try {
+    const hostname = new URL(url).hostname.replace('www.', '');
+    if (
+      hostname.includes('.a.run.app') ||
+      hostname.includes('.vercel.app') ||
+      hostname.includes('.netlify.app')
+    ) {
+      return 'Link';
+    }
+    return hostname;
+  } catch {
+    return 'Link';
+  }
+};
+
 export const Projects = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   return (
-    <Section id="projects" className="!pt-0 !pb-16 md:!pb-24">
+    <Section id="projects" className="!pt-0 !pb-4 md:!pb-6">
       <FadeIn>
         <h2 className="text-3xl md:text-4xl mb-10 md:mb-14">Projects</h2>
       </FadeIn>
@@ -49,7 +66,7 @@ export const Projects = () => {
                             external
                             className="text-sm"
                           >
-                            Link →
+                            {getDomainFromUrl(project.link)} →
                           </Link>
                         )}
                         {project.github && (

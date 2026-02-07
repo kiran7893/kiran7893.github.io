@@ -28,6 +28,23 @@ export interface Project {
   context?: string; // e.g., "@ Indhic", "@ Shortcastle", "Freelance", "Personal"
 }
 
+export interface OpenSourceProject {
+  title: string;
+  description: string;
+  technologies: string[];
+  github: string;
+  stars?: number;
+  forks?: number;
+}
+
+export interface Achievement {
+  title: string;
+  description: string;
+  link?: string;
+  linkLabel?: string;
+  highlights?: string[];
+}
+
 export interface Skills {
   languages: string[];
   frameworks: string[];
@@ -44,6 +61,8 @@ export interface ProfileData {
   socialLinks: SocialLinks;
   timeline: TimelineEntry[];
   projects: Project[];
+  openSource: OpenSourceProject[];
+  achievements: Achievement[];
   skills: Skills;
 }
 
@@ -185,6 +204,31 @@ I focused heavily on practical skills alongside academics—learning full-stack 
       image: '/projects/Web-solutions.png',
       link: 'https://web-solutions-one.vercel.app/',
       context: 'Personal',
+    },
+  ],
+  openSource: [
+    {
+      title: 'VS Code Extension + React Boilerplate',
+      description:
+        'A production-ready boilerplate for building VS Code extensions with React webviews. Features TypeScript, React 19, Tailwind CSS, esbuild bundling, two-way messaging between extension and webview, VS Code theme-aware styling, and watch mode for development. Designed to help developers skip the setup and start building extensions immediately.',
+      technologies: ['TypeScript', 'React 19', 'Tailwind CSS', 'esbuild', 'VS Code API'],
+      github: 'https://github.com/kiran7893/vscode-extension-react-boilerplate',
+      stars: 5,
+      forks: 3,
+    },
+  ],
+  achievements: [
+    {
+      title: 'Google Cloud Arcade 2024 — Milestone 3',
+      description:
+        'Gained hands-on cloud computing experience through the Google Cloud Arcade program, completing 70+ skill badges and labs across GCP services including Kubernetes, CI/CD pipelines, BigQuery, serverless computing, and Generative AI. Recognized by Google with exclusive swag and hoodies for reaching Milestone 3.',
+      link: 'https://www.skills.google/public_profiles/d87b7809-353d-4b53-91a7-5486584da38d?locale=en',
+      linkLabel: 'Google Cloud Skills Profile',
+      highlights: [
+        '70+ Google Cloud skill badges earned',
+        'Hands-on labs: Kubernetes, CI/CD, BigQuery, Cloud Run, GenAI',
+        'Received exclusive Google swag & hoodies for Milestone 3',
+      ],
     },
   ],
   skills: {

@@ -57,7 +57,7 @@ const TimelineItem = ({ entry, index }: { entry: TimelineEntry; index: number })
 
 export const Experience = () => {
   return (
-    <Section id="experience" className="!py-16 md:!py-24">
+    <Section id="experience" className="!py-6 md:!py-8">
       <FadeIn>
         <h2 className="text-3xl md:text-4xl mb-10 md:mb-14">Journey</h2>
       </FadeIn>
