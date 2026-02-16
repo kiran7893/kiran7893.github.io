@@ -28,11 +28,27 @@ const components: Partial<Components> = {
       {children}
     </h4>
   ),
-  p: ({ children, ...props }) => (
-    <p className="text-foreground mb-6 leading-8 text-lg" {...props}>
-      {children}
-    </p>
-  ),
+  p: ({ children, node, ...props }) => {
+    // If paragraph contains an image, render as div to avoid invalid nesting
+    // (block elements like div/figure cannot be inside <p>)
+    const hasImage = node?.children?.some(
+      (child) => (child as { type: string; tagName?: string }).type === 'element' && (child as { type: string; tagName?: string }).tagName === 'img'
+    );
+
+    if (hasImage) {
+      return (
+        <div className="text-foreground mb-6 leading-8 text-lg" {...props}>
+          {children}
+        </div>
+      );
+    }
+
+    return (
+      <p className="text-foreground mb-6 leading-8 text-lg" {...props}>
+        {children}
+      </p>
+    );
+  },
   ul: ({ children, ...props }) => (
     <ul className="list-disc list-inside text-foreground mb-6 space-y-3 ml-4" {...props}>
       {children}
@@ -125,7 +141,7 @@ const components: Partial<Components> = {
     </td>
   ),
   img: ({ src, alt, ...props }) => (
-    <div className="my-6 relative w-full h-auto text-center">
+    <span className="my-6 relative w-full h-auto text-center block">
       <img
         src={src || ''}
         alt={alt || ''}
@@ -133,11 +149,11 @@ const components: Partial<Components> = {
         {...props}
       />
       {alt && (
-        <p className="text-center text-muted text-sm mt-2 italic">
+        <span className="text-center text-muted text-sm mt-2 italic block">
           {alt}
-        </p>
+        </span>
       )}
-    </div>
+    </span>
   ),
 };
 

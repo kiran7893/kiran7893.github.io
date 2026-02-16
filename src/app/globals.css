@@ -22,6 +22,7 @@
 
   body {
     background: radial-gradient(circle at top right, #f2f7ff 0%, var(--color-background) 42%);
+    background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans), sans-serif;
     font-feature-settings: 'rlig' 1, 'calt' 1;
