@@ -14,37 +14,37 @@ const components: Partial<Components> = {
     </h1>
   ),
   h2: ({ children, ...props }) => (
-    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 mt-8 leading-tight" {...props}>
+    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 mt-12 leading-tight" {...props}>
       {children}
     </h2>
   ),
   h3: ({ children, ...props }) => (
-    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 mt-6 leading-tight" {...props}>
+    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 mt-8 leading-tight" {...props}>
       {children}
     </h3>
   ),
   h4: ({ children, ...props }) => (
-    <h4 className="text-lg md:text-xl font-bold text-foreground mb-2 mt-4" {...props}>
+    <h4 className="text-lg md:text-xl font-bold text-foreground mb-3 mt-6" {...props}>
       {children}
     </h4>
   ),
   p: ({ children, ...props }) => (
-    <p className="text-foreground mb-4 leading-7 text-base" {...props}>
+    <p className="text-foreground mb-6 leading-8 text-lg" {...props}>
       {children}
     </p>
   ),
   ul: ({ children, ...props }) => (
-    <ul className="list-disc list-inside text-foreground mb-4 space-y-2 ml-4" {...props}>
+    <ul className="list-disc list-inside text-foreground mb-6 space-y-3 ml-4" {...props}>
       {children}
     </ul>
   ),
   ol: ({ children, ...props }) => (
-    <ol className="list-decimal list-inside text-foreground mb-4 space-y-2 ml-4" {...props}>
+    <ol className="list-decimal list-inside text-foreground mb-6 space-y-3 ml-4" {...props}>
       {children}
     </ol>
   ),
   li: ({ children, ...props }) => (
-    <li className="text-foreground leading-7" {...props}>
+    <li className="text-foreground leading-8 text-lg" {...props}>
       {children}
     </li>
   ),
@@ -71,7 +71,7 @@ const components: Partial<Components> = {
   ),
   blockquote: ({ children, ...props }) => (
     <blockquote
-      className="border-l-4 border-accent pl-6 py-4 my-6 bg-muted/10 rounded-r-lg"
+      className="border-l-4 border-accent pl-6 py-5 my-8 bg-muted/10 rounded-r-lg"
       {...props}
     >
       <div className="text-foreground text-lg italic leading-relaxed">
@@ -86,7 +86,7 @@ const components: Partial<Components> = {
   ),
   pre: ({ children, ...props }) => (
     <pre
-      className="bg-muted/10 border border-border rounded-lg p-4 overflow-x-auto mb-6 text-sm"
+      className="bg-muted/10 border border-border rounded-lg p-4 overflow-x-auto mb-8 text-sm"
       {...props}
     >
       {children}
