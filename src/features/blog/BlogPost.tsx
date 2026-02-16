@@ -1,7 +1,6 @@
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
 import Link from 'next/link';
 import { Section } from '@/components/ui/Section';
-import { Button } from '@/components/ui/Button';
 import { FadeIn } from '@/components/animations/FadeIn';
 import { BlogPost as BlogPostType } from '@/types/BlogData';
 import MDXContent from '@/components/MDXContent';
@@ -18,11 +17,12 @@ export const BlogPost = ({ post }: BlogPostProps) => {
         {/* Back Button */}
         <FadeIn>
           <div className="mb-8">
-            <Link href="/blog">
-              <Button variant="outline">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Blog
-              </Button>
+            <Link 
+              href="/blog" 
+              className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg hover:bg-black/90 transition-all duration-200 group"
+            >
+              <ArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
+              <span className="text-sm font-medium">Back to Blog</span>
             </Link>
           </div>
         </FadeIn>
@@ -104,8 +104,8 @@ export const BlogPost = ({ post }: BlogPostProps) => {
         {/* Footer */}
         <FadeIn delay={0.3}>
           <div className="mt-16 pt-8 border-t border-border">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4 text-muted">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-4 text-foreground">
                 <div className="flex items-center gap-2">
                   <User className="w-4 h-4" />
                   <span className="text-sm">Written by {post.author}</span>
@@ -122,11 +122,12 @@ export const BlogPost = ({ post }: BlogPostProps) => {
                   </span>
                 </div>
               </div>
-              <Link href="/blog">
-                <Button variant="outline">
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back to Blog
-                </Button>
+              <Link 
+                href="/blog" 
+                className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg hover:bg-black/90 transition-all duration-200 group"
+              >
+                <ArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
+                <span className="text-sm font-medium">Back to Blog</span>
               </Link>
             </div>
           </div>

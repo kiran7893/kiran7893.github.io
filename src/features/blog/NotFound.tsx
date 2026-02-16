@@ -16,11 +16,12 @@ export const NotFound = () => {
             been moved.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/blog">
-              <Button variant="outline">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Blog
-              </Button>
+            <Link 
+              href="/blog" 
+              className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg hover:bg-black/90 transition-all duration-200 group"
+            >
+              <ArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
+              <span className="text-sm font-medium">Back to Blog</span>
             </Link>
             <Link href="/">
               <Button variant="primary">Go Home</Button>
