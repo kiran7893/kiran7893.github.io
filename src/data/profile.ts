@@ -214,7 +214,6 @@ I focused heavily on practical skills alongside academics—learning full-stack 
       technologies: ['TypeScript', 'React Ink', 'OpenRouter', 'OpenAI SDK'],
       github: 'https://github.com/kiran7893/Image-generation-agent',
       stars: 2,
-      forks: 0,
     },
     {
       title: 'VS Code Extension + React Boilerplate',
