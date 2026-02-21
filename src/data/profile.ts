@@ -208,6 +208,15 @@ I focused heavily on practical skills alongside academics—learning full-stack 
   ],
   openSource: [
     {
+      title: 'Image Generation Agent',
+      description:
+        'A CLI agent built with React Ink and OpenRouter that answers questions and generates images using a subagent architecture. A specialized subagent intercepts vague image prompts and expands them into highly detailed descriptions—specifying lighting, mood, camera angles, and art style—before passing them to the image model for generation.',
+      technologies: ['TypeScript', 'React Ink', 'OpenRouter', 'OpenAI SDK'],
+      github: 'https://github.com/kiran7893/Image-generation-agent',
+      stars: 2,
+      forks: 0,
+    },
+    {
       title: 'VS Code Extension + React Boilerplate',
       description:
         'A production-ready boilerplate for building VS Code extensions with React webviews. Features TypeScript, React 19, Tailwind CSS, esbuild bundling, two-way messaging between extension and webview, VS Code theme-aware styling, and watch mode for development. Designed to help developers skip the setup and start building extensions immediately.',
