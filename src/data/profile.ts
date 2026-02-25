@@ -213,7 +213,7 @@ I focused heavily on practical skills alongside academics—learning full-stack 
         'A CLI agent built with React Ink and OpenRouter that answers questions and generates images using a subagent architecture. A specialized subagent intercepts vague image prompts and expands them into highly detailed descriptions—specifying lighting, mood, camera angles, and art style—before passing them to the image model for generation.',
       technologies: ['TypeScript', 'React Ink', 'OpenRouter', 'OpenAI SDK'],
       github: 'https://github.com/kiran7893/Image-generation-agent',
-      stars: 2,
+      stars: 3,
     },
     {
       title: 'VS Code Extension + React Boilerplate',
