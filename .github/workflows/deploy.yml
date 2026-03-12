@@ -16,6 +16,8 @@ concurrency:
 
 jobs:
   deploy:
+    env:
+      NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ vars.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
