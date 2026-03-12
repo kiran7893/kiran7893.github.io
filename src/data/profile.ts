@@ -224,6 +224,13 @@ I focused heavily on practical skills alongside academics—learning full-stack 
       stars: 5,
       forks: 3,
     },
+    {
+      title: 'Research Agent',
+      description:
+        'A local, privacy-first AI research assistant that searches the web, fetches and parses live pages, and streams grounded answers over WebSockets. Built with Fastify and Cheerio, with pluggable LLM backends (LM Studio or OpenRouter) so developers can run research workflows without a browser automation stack.',
+      technologies: ['TypeScript', 'Node.js', 'Fastify', 'WebSockets', 'Cheerio', 'OpenAI SDK', 'tsup'],
+      github: 'https://github.com/kiran7893/research-agent',
+    },
   ],
   achievements: [
     {

@@ -7,6 +7,7 @@ import { Button } from '../../components/ui/Button';
 import { FadeIn } from '../../components/animations/FadeIn';
 import { Section } from '../../components/ui/Section';
 import { Link } from '../../components/ui/Link';
+import { trackEvent } from '@/lib/gtag';
 
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg
@@ -23,7 +24,17 @@ const GithubIcon = ({ className }: { className?: string }) => (
 );
 
 export const Hero = () => {
-  const openLink = (url: string) => window.open(url, '_blank', 'noopener,noreferrer');
+  const openLink = (
+    url: string,
+    eventName?: string,
+    eventParams?: Record<string, string>
+  ) => {
+    if (eventName) {
+      trackEvent(eventName, eventParams);
+    }
+
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <Section id="home" className="flex items-center justify-center !pt-12 sm:!pt-16 md:!pt-20 !pb-0">
@@ -53,7 +64,12 @@ export const Hero = () => {
             <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3 mb-6 sm:mb-8">
               <Button
                 variant="primary"
-                onClick={() => openLink(profileData.socialLinks.github)}
+                onClick={() =>
+                  openLink(profileData.socialLinks.github, 'github_click', {
+                    source: 'hero',
+                    destination: profileData.socialLinks.github,
+                  })
+                }
                 className="gap-2 text-sm sm:text-base"
               >
                 <GithubIcon className="w-4 h-4 shrink-0" />
@@ -61,7 +77,12 @@ export const Hero = () => {
               </Button>
               <Button
                 variant="outline"
-                onClick={() => openLink(profileData.socialLinks.linkedin)}
+                onClick={() =>
+                  openLink(profileData.socialLinks.linkedin, 'linkedin_click', {
+                    source: 'hero',
+                    destination: profileData.socialLinks.linkedin,
+                  })
+                }
                 className="gap-2 text-sm sm:text-base"
               >
                 <Linkedin className="w-4 h-4" aria-hidden />
@@ -69,7 +90,12 @@ export const Hero = () => {
               </Button>
               <Button
                 variant="outline"
-                onClick={() => openLink(profileData.socialLinks.resume)}
+                onClick={() =>
+                  openLink(profileData.socialLinks.resume, 'resume_click', {
+                    source: 'hero',
+                    destination: profileData.socialLinks.resume,
+                  })
+                }
                 className="gap-2 text-sm sm:text-base"
               >
                 <FileText className="w-4 h-4" aria-hidden />
@@ -83,7 +109,15 @@ export const Hero = () => {
               <p>Available for full-time and contract opportunities.</p>
               <p>
                 Prefer email?{" "}
-                <Link href={profileData.socialLinks.email} external>
+                <Link
+                  href={profileData.socialLinks.email}
+                  external
+                  onClick={() =>
+                    trackEvent('contact_email_click', {
+                      source: 'hero',
+                    })
+                  }
+                >
                   Reach out directly
                 </Link>
               </p>

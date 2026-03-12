@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { trackEvent } from '@/lib/gtag';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +20,17 @@ export const Header = () => {
 
   const isActive = (path: string) => pathname === path;
 
-  const NavLink = ({ href, children, external = false }: { href: string; children: React.ReactNode; external?: boolean }) => {
+  const NavLink = ({
+    href,
+    children,
+    external = false,
+    onClick,
+  }: {
+    href: string;
+    children: React.ReactNode;
+    external?: boolean;
+    onClick?: () => void;
+  }) => {
     const active = isActive(href);
     const baseClass = `
       relative text-lg font-medium py-2 px-1
@@ -48,6 +59,7 @@ export const Header = () => {
           className={baseClass}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={onClick}
         >
           {content}
         </a>
@@ -55,7 +67,7 @@ export const Header = () => {
     }
 
     return (
-      <Link href={href} className={baseClass}>
+      <Link href={href} className={baseClass} onClick={onClick}>
         {content}
       </Link>
     );
@@ -72,8 +84,27 @@ export const Header = () => {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="flex items-center justify-end h-20 gap-10">
           <div className="hidden md:flex items-center gap-8">
-            <NavLink href="/blog">Blog</NavLink>
-            <NavLink href="mailto:myadaramsaikiran@gmail.com" external>Contact</NavLink>
+            <NavLink
+              href="/blog"
+              onClick={() =>
+                trackEvent('blog_nav_click', {
+                  source: 'header_desktop',
+                })
+              }
+            >
+              Blog
+            </NavLink>
+            <NavLink
+              href="mailto:myadaramsaikiran@gmail.com"
+              external
+              onClick={() =>
+                trackEvent('contact_email_click', {
+                  source: 'header_desktop',
+                })
+              }
+            >
+              Contact
+            </NavLink>
           </div>
 
           {/* Mobile menu button */}
@@ -113,7 +144,12 @@ export const Header = () => {
             <Link
               href="/blog"
               className="relative text-xl font-medium py-2 text-gray-800 hover:text-black transition-all duration-200 group w-fit"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                trackEvent('blog_nav_click', {
+                  source: 'header_mobile',
+                });
+                setIsMenuOpen(false);
+              }}
             >
               Blog
               <span 
@@ -127,7 +163,12 @@ export const Header = () => {
             <a
               href="mailto:myadaramsaikiran@gmail.com"
               className="relative text-xl font-medium py-2 text-gray-800 hover:text-black transition-all duration-200 group w-fit"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                trackEvent('contact_email_click', {
+                  source: 'header_mobile',
+                });
+                setIsMenuOpen(false);
+              }}
             >
               Contact
               <span 

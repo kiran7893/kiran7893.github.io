@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/animations/FadeIn';
 import { getAllPosts } from '@/lib/mdx';
+import { TrackEventLink } from '@/components/analytics/TrackEventLink';
 
 export const Blog = () => {
   const allPosts = getAllPosts();
@@ -35,7 +36,16 @@ export const Blog = () => {
           <div>
             {allPosts.map((post, index) => (
               <FadeIn key={post.id} delay={index * 0.1}>
-                <Link href={`/blog/${post.slug}`} className="block group">
+                <TrackEventLink
+                  href={`/blog/${post.slug}`}
+                  className="block group"
+                  eventName="blog_post_click"
+                  eventParams={{
+                    post_slug: post.slug,
+                    post_title: post.title,
+                    source: 'blog_list',
+                  }}
+                >
                   <article className="py-6 border-b border-border first:border-t">
                     {/* Date */}
                     <p className="text-sm text-muted/70 mb-1.5">
@@ -62,7 +72,7 @@ export const Blog = () => {
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </article>
-                </Link>
+                </TrackEventLink>
               </FadeIn>
             ))}
           </div>

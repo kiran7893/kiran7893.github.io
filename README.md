@@ -23,6 +23,29 @@ npm run dev
 npm run build
 ```
 
+## Analytics (GA4)
+
+1. Copy `.env.example` to `.env.local` and set your measurement ID:
+
+```bash
+cp .env.example .env.local
+# then set NEXT_PUBLIC_GA_MEASUREMENT_ID=G-...
+```
+
+2. GA4 events tracked by this site:
+   - `page_view` for route changes (home, blog list, blog posts)
+   - `resume_click` when the Resume button is opened
+   - `blog_post_click` when a blog post is opened from the blog list
+   - `blog_nav_click` when Blog is opened from header navigation
+   - `github_click` and `linkedin_click` for profile/social clicks
+   - `contact_email_click` for mail clicks from hero/header/contact section
+   - `outbound_link_click` for external and `mailto:` links through shared link components
+   - `project_demo_click` and `project_preview_click` for project engagement
+
+3. In GA4 Data Stream settings, enable Enhanced Measurement.
+
+4. In GA4 Admin -> Events, mark `resume_click` as a conversion if resume opens are a KPI.
+
 ## Deployment
 
 This project is configured for automatic deployment to GitHub Pages via GitHub Actions.

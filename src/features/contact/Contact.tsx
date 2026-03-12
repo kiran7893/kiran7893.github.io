@@ -1,8 +1,11 @@
+'use client';
+
 import { Section } from '../../components/ui/Section';
 import { Card } from '../../components/ui/Card';
 import { FadeIn } from '../../components/animations/FadeIn';
 import { Link } from '../../components/ui/Link';
 import { profileData } from '../../data/profile';
+import { trackEvent } from '@/lib/gtag';
 
 export const Contact = () => {
   return (
@@ -21,6 +24,11 @@ export const Contact = () => {
                 href={profileData.socialLinks.email}
                 external
                 className="text-lg"
+                onClick={() =>
+                  trackEvent('contact_email_click', {
+                    source: 'contact_section',
+                  })
+                }
               >
                 Email
               </Link>
@@ -28,6 +36,12 @@ export const Contact = () => {
                 href={profileData.socialLinks.linkedin}
                 external
                 className="text-lg"
+                onClick={() =>
+                  trackEvent('linkedin_click', {
+                    source: 'contact_section',
+                    destination: profileData.socialLinks.linkedin,
+                  })
+                }
               >
                 LinkedIn
               </Link>

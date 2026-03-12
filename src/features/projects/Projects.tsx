@@ -11,6 +11,7 @@ import {
   getYouTubeVideoId,
   getYouTubeThumbnail,
 } from './YouTubeModal';
+import { trackEvent } from '@/lib/gtag';
 
 /** Extract a clean domain name from a URL, falling back to "Live Demo" for ugly cloud/preview URLs */
 const getDomainFromUrl = (url: string): string => {
@@ -100,7 +101,13 @@ export const Projects = () => {
                   {/* Project Video - Right Side (YouTube) */}
                   {videoId && (
                     <button
-                      onClick={() => setActiveVideo(videoId)}
+                      onClick={() => {
+                        trackEvent('project_demo_click', {
+                          project_title: project.title,
+                          source: 'projects_section',
+                        });
+                        setActiveVideo(videoId);
+                      }}
                       className="block md:w-80 lg:w-96 flex-shrink-0 group cursor-pointer"
                       aria-label={`Play ${project.title} demo video`}
                     >
@@ -144,6 +151,13 @@ export const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block md:w-80 lg:w-96 flex-shrink-0 group"
+                      onClick={() =>
+                        trackEvent('project_preview_click', {
+                          project_title: project.title,
+                          project_url: project.link,
+                          source: 'projects_section',
+                        })
+                      }
                     >
                       <div className="relative aspect-video rounded-xl overflow-hidden border border-border bg-muted/5 transition-all duration-300 group-hover:border-foreground/30 group-hover:shadow-lg group-hover:shadow-foreground/5 group-hover:-translate-y-1">
                         <Image
